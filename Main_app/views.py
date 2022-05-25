@@ -7,3 +7,6 @@ from django.shortcuts import render
 
 def index(request):
     return render(request,"my_templates/index.html")
+
+def supplies_code(request):
+    return render(request,"my_templates/supplies_code.html")
