@@ -12,10 +12,10 @@ from .forms import NewLaborFormUsingModelForm
 # Create your views here.
 
 def index(request):
-    return render(request,"my_templates/index.html")
+    return render(request,"Main_app/index.html")
 
 def supplies_code(request):
-    return render(request,"my_templates/supplies_code.html")
+    return render(request,"Main_app/supplies_code.html")
     return render(request,"Main_app/index.html")
 
 
