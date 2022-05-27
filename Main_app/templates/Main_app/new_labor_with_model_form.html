@@ -1,0 +1,13 @@
+{% extends 'Main_app/base.html' %}
+{% block Title %}
+<title>New Labor Using Model Form</title>
+{% endblock Title %}
+
+{% block content %}
+<form method="post">
+{% csrf_token %}
+<br>
+{{ form.as_p}}
+<input type="submit" value="Add New Labor">
+</form>
+{% endblock content %}
