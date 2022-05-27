@@ -1,13 +1,17 @@
 {% extends 'login_screen/base.html' %}
+{% block headcontent %}
+  <link rel="stylesheet" type="text/css" href="login_screen/login.css">
+{% endblock %}
 {% block title %}
     <title>Login</title>
 {% endblock %}
 {% load crispy_forms_tags %}
 {% block content %}
-  <h2>Login </h2>
+  <h2 id="test">Login to your account</h2>
   <form method="post">
     {% csrf_token %}
     {{ form|crispy }}
     <button type="submit">Login</button>
   </form>
+  <a href="{% url 'user_register' %}">Not a user yet? Register</a>
 {% endblock %}
