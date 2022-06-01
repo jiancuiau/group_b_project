@@ -4,10 +4,15 @@
 {% endblock Title %}
 
 {% block content %}
+<h1>
+    Add New Labor
+</h1>
+
 <form method="post">
 {% csrf_token %}
 <br>
 {{ form.as_p}}
+<br>
 <input type="submit" value="Add New Labor">
 </form>
 {% endblock content %}

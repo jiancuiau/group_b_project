@@ -16,7 +16,7 @@ def index(request):
 
 def supplies_code(request):
     return render(request,"Main_app/supplies_code.html")
-    return render(request,"Main_app/index.html")
+    
 
 
 def showLaborCode(request):
@@ -41,5 +41,5 @@ class AddNewLaborUsingModelForm(View):
         form = self.form_class(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse("courses_view_class_all_courses"))
+            # return HttpResponseRedirect(reverse("showLaborCode"))
         return render(request, self.template_name, {'form': form})

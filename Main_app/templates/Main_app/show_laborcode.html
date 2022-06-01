@@ -1,36 +1,59 @@
 {% extends "Main_app/base.html" %}
 {% load static %}
 
+
+{% block mycss %} 
+    <style> 
+        .row{
+            margin-top: -100px;
+        }
+        
+
+    </style> 
+
+
+{% endblock %}
+
+
 {% block content %}
+
+<h1>
+    Labor Code Maintenance
+</h1>
+
 <form method="post">
 {% csrf_token %}
-<button onclick="location.href='http://www.example.com'" type="button">
-         Add New</button>
+
 
 <div class="row">
     <div class="col-md-4"> 
         <table class="table table-striped table-hover">
-        <thead>
+        <thead class="thead">
             <th>Labor Class</th>
             <th>Billing Codes</th>
             <th>Default Rates/Hr.</th>
-            <th>Active</th>
-            <th>#</th>
-            <th>#</th>
+            <th>Active </th>
+            <th># </th>
+            <th># </th>
         </thead>
-        <tbody>
+        
         {% for l in labor %}
+        <tbody>
             <td><strong>{{ l.labor_class }} </strong></td>
             <td><strong>{{ l.billing_code}}</strong></td>
             <td>{{ l.rates}} </td>
             <td>{{ l.active}} </td>
             <td><a href="#" class="btn btn-primary">Edit</a> </td>
             <td><a href="#" class="btn btn-primary">Deactivate</a> </td>
-        {% endfor %}
         </tbody>
+            <br>
+        {% endfor %}
+        
         </table>
     </div>
 </div>
 
 </form>
+<br>
+<a class="addnew" href="{% url 'add_new_labor' %}"><button onclick="" type="button">Add New</button></a>
 {% endblock %}
