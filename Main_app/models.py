@@ -7,7 +7,7 @@ class LaborClass(models.Model):
                      ('N', 'Inactive'),
                      ]
 
-    labor_class = models.CharField(max_length=100, primary_key = True)
+    labor_class = models.CharField(max_length=100, primary_key=True)
     billing_code = models.CharField(max_length=20)
     rates = models.PositiveIntegerField(blank=True)
     active = models.CharField(max_length=1, choices=ACTIVE_STATUS, default='Y')
@@ -16,3 +16,19 @@ class LaborClass(models.Model):
 
     class Meta:
         db_table = "LaborCode"
+
+
+class SupplyClass(models.Model):
+    ACTIVE_STATUS = [('Y', 'Active'),
+                     ('N', 'Inactive'),
+                     ]
+
+    supply_class = models.CharField(max_length=100, primary_key=True)
+    billing_code = models.CharField(max_length=20)
+    rates = models.PositiveIntegerField(blank=True)
+    active = models.CharField(max_length=1, choices=ACTIVE_STATUS, default='Y')
+
+    objects = models.Manager()
+
+    class Meta:
+        db_table = "SupplyCode"

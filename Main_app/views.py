@@ -7,16 +7,12 @@ from django.urls import reverse
 from django.views import View
 from django.template import loader
 
-from .models import LaborClass
-from .forms import NewLaborFormUsingModelForm
+from .models import LaborClass, SupplyClass
+from .forms import NewLaborFormUsingModelForm, NewSupplyFormUsingModelForm
 
 # Create your views here.
-
 def index(request):
     return render(request,"Main_app/index.html")
-
-def supplies_code(request):
-    return render(request,"Main_app/supplies_code.html") 
 
 
 def showLaborCode(request):
@@ -68,3 +64,31 @@ def updaterecord(request, labor_class):
     labor.save()
     
     return redirect("../../")
+
+
+def showSupplyCode(request):
+    if request.method == "GET":
+        supply = SupplyClass.objects.all()
+        #return a response to your template and add query_results to the context
+        context = {
+            "supply": supply
+        }
+        return render(request, 'Main_app/show_supplycode.html', context)
+
+
+class AddNewSupplyUsingModelForm(View):
+    form_class = NewSupplyFormUsingModelForm
+    template_name = 'Main_app/new_supply_with_model_form.html'
+
+    def get(self, request, *args, **kwargs):
+        form = NewSupplyFormUsingModelForm()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+            # return HttpResponseRedirect(reverse("showLaborCode"))
+            return redirect("../supply_code/")
+        return render(request, self.template_name, {'form': form})
+

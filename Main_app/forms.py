@@ -1,5 +1,5 @@
 from django import forms
-from .models import LaborClass
+from .models import LaborClass, SupplyClass
 
 
 class NewLaborFormUsingModelForm(forms.ModelForm):
@@ -10,3 +10,11 @@ class NewLaborFormUsingModelForm(forms.ModelForm):
         # help_texts = {'name': 'Provide a unique name of the Course'}
         # widgets = {'description': forms.Textarea(attrs={'cols': 100, 'rows': 4})}
 
+
+class NewSupplyFormUsingModelForm(forms.ModelForm):
+    class Meta:
+        model = SupplyClass
+        fields = "__all__"
+        labels = {'supply_class': "Supply Class", 'billing_code': 'Billing Codes'}
+        # help_texts = {'name': 'Provide a unique name of the Course'}
+        # widgets = {'description': forms.Textarea(attrs={'cols': 100, 'rows': 4})}
