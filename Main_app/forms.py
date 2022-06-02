@@ -9,3 +9,4 @@ class NewLaborFormUsingModelForm(forms.ModelForm):
         labels = {'labor_class': "Labor Class", 'billing_code': 'Billing Codes'}
         # help_texts = {'name': 'Provide a unique name of the Course'}
         # widgets = {'description': forms.Textarea(attrs={'cols': 100, 'rows': 4})}
+

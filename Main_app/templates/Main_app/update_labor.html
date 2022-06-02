@@ -1,0 +1,35 @@
+{% extends 'Main_app/base.html' %}
+{% block Title %}
+<title>Update Labor Using Model Form</title>
+{% endblock Title %}
+
+{% block content %}
+<h1>
+   Update Labor
+</h1>
+
+
+<form action="updaterecord/{{ mylabor.labor_class }}" method="post">
+    {% csrf_token %}
+    {% comment %} labor_class:<br>
+    <input name="labor_class" value="{{ mylabor.labor_class }}">
+    <br><br>  {% endcomment %}
+
+    billing_code:<br>
+    <input name="billing_code" value="{{ mylabor.billing_code }}">
+    <br><br>
+
+    rates:<br>
+    <input name="rates" value="{{ mylabor.rates }}">
+    <br><br>
+
+    active:<br>
+    <input name="active" value="{{ mylabor.active }}">
+    <br><br> 
+   
+
+    <input type="submit" value="Submit">
+</form>
+
+
+{% endblock content %}

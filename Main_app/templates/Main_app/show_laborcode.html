@@ -4,10 +4,24 @@
 
 {% block mycss %} 
     <style> 
-        .row{
-            margin-top: -100px;
+        form{
+            padding-top: 0px
+        }
+        table{
+            width: 75%;
+        }
+        table, th,td {
+            border: 1px solid;
+            border-color: #c4b2b2;;
+        }
+        tr:hover {
+            background-color: #c16d6d;
         }
         
+        button {
+            background-color:#c4b2b2;
+        }
+  
 
     </style> 
 
@@ -20,7 +34,6 @@
 <h1>
     Labor Code Maintenance
 </h1>
-
 <form method="post">
 {% csrf_token %}
 
@@ -43,10 +56,10 @@
             <td><strong>{{ l.billing_code}}</strong></td>
             <td>{{ l.rates}} </td>
             <td>{{ l.active}} </td>
-            <td><a href="#" class="btn btn-primary">Edit</a> </td>
+            <td><a href="update_labor/{{l.labor_class}}" class="btn btn-primary">Edit</a> </td>
             <td><a href="#" class="btn btn-primary">Deactivate</a> </td>
         </tbody>
-            <br>
+            
         {% endfor %}
         
         </table>
@@ -55,5 +68,5 @@
 
 </form>
 <br>
-<a class="addnew" href="{% url 'add_new_labor' %}"><button onclick="" type="button">Add New</button></a>
+<a href="{% url 'add_new_labor' %}"><button onclick="" type="button">Add New</button></a>
 {% endblock %}
