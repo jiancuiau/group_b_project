@@ -7,8 +7,8 @@ from django.urls import reverse
 from django.views import View
 from django.template import loader
 
-from .models import LaborClass, SupplyClass
-from .forms import NewLaborFormUsingModelForm, NewSupplyFormUsingModelForm
+from .models import LaborClass, SupplyClass, EquipmentClass
+from .forms import NewLaborFormUsingModelForm, NewSupplyFormUsingModelForm, NewEquipmentFormUsingModelForm
 
 # Create your views here.
 def index(request):
@@ -90,5 +90,33 @@ class AddNewSupplyUsingModelForm(View):
             form.save()
             # return HttpResponseRedirect(reverse("showLaborCode"))
             return redirect("../supply_code/")
+        return render(request, self.template_name, {'form': form})
+
+
+
+def showEquipmentCode(request):
+    if request.method == "GET":
+        equip = EquipmentClass.objects.all()
+        #return a response to your template and add query_results to the context
+        context = {
+            "equipment": equip
+        }
+        return render(request, 'Main_app/show_equipmentcode.html', context)
+
+
+class AddNewEquipmentUsingModelForm(View):
+    form_class = NewEquipmentFormUsingModelForm
+    template_name = 'Main_app/new_equipment_with_model_form.html'
+
+    def get(self, request, *args, **kwargs):
+        form = NewEquipmentFormUsingModelForm()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+            # return HttpResponseRedirect(reverse("showLaborCode"))
+            return redirect("../equipment_code/")
         return render(request, self.template_name, {'form': form})
 

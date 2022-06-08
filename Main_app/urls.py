@@ -15,4 +15,7 @@ urlpatterns = [
 
     path("supply_code/", views.showSupplyCode, name="show_supply_code"),
     path("new_supply/", views.AddNewSupplyUsingModelForm.as_view(), name="add_new_supply"),
+
+    path("equipment_code/", views.showEquipmentCode, name="show_equipment_code"),
+    path("new_equipment/", views.AddNewEquipmentUsingModelForm.as_view(), name="add_new_equipment"),
 ]
