@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'group_b_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'newproject',
+        'NAME': 'group_b',
         'USER': 'root',
-        'PASSWORD': '1234',
-        'HOST': '127.0.0.1',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
