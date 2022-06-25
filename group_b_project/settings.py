@@ -72,7 +72,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'group_b_project.wsgi.application'
-
+ALLOWED_HOSTS = ['3.144.139.59', 'localhost', '127.0.0.1']
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
