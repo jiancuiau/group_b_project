@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'group_b',
         'USER': 'root',
         'PASSWORD': 'P@ssw0rd',
-        'HOST': '18.216.120.20',
+        'HOST': '54.164.69.8',
         'PORT': '3306',
     }
 }
